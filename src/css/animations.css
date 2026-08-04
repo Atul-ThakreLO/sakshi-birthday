@@ -1,0 +1,185 @@
+/* ========================================================
+   ANIMATIONS — Sakshi Birthday Website
+   All @keyframes and animation utilities
+   ======================================================== */
+
+/* ── Floating / Bobbing ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-8px) rotate(1deg); }
+  66%       { transform: translateY(-4px) rotate(-1deg); }
+}
+
+@keyframes swipe-bob {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.7; }
+  50%       { transform: translateX(-50%) translateY(6px); opacity: 1; }
+}
+
+/* ── Glows ── */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(255,107,157,0.3); }
+  50%       { box-shadow: 0 0 50px rgba(255,107,157,0.6), 0 0 100px rgba(168,85,247,0.3); }
+}
+
+@keyframes gold-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes glow-ring {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50%       { opacity: 0.8; transform: scale(1.08); }
+}
+
+/* ── Reveal ── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Letter stagger (intro) ── */
+@keyframes letter-drop {
+  from {
+    transform: translateY(-24px) scale(0.88);
+    filter: blur(5px);
+  }
+  to {
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* ── Modals ── */
+@keyframes modal-bg-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes modal-slide-up {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+/* ── Music Visualizer ── */
+@keyframes viz-bar {
+  from { transform: scaleY(0.3); }
+  to   { transform: scaleY(1); }
+}
+
+/* ── Wrapped slides ── */
+@keyframes slide-in-from-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+@keyframes slide-out-to-left {
+  from { transform: translateX(0); opacity: 1; }
+  to   { transform: translateX(-100%); opacity: 0; }
+}
+
+/* ── Stat number count pulse ── */
+@keyframes stat-pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+/* ── Polaroid tilt ── */
+@keyframes polaroid-wobble {
+  0%   { transform: rotate(var(--tilt, -2deg)); }
+  50%  { transform: rotate(calc(var(--tilt, -2deg) + 4deg)); }
+  100% { transform: rotate(var(--tilt, -2deg)); }
+}
+
+/* ── Sparkle dot ── */
+@keyframes sparkle-blink {
+  0%, 100% { opacity: 0.4; transform: scale(0.8); }
+  50%       { opacity: 1; transform: scale(1.2); }
+}
+
+/* ── Orb drift ── */
+@keyframes orb-drift {
+  0%   { transform: translate(0,0) scale(1); }
+  33%  { transform: translate(30px, -20px) scale(1.05); }
+  66%  { transform: translate(-20px, 15px) scale(0.95); }
+  100% { transform: translate(0,0) scale(1); }
+}
+
+/* ── Trophy shine ── */
+@keyframes trophy-shine {
+  0%   { filter: drop-shadow(0 0 8px rgba(255,215,0,0.4)); }
+  50%  { filter: drop-shadow(0 0 20px rgba(255,215,0,0.8)) drop-shadow(0 0 40px rgba(255,215,0,0.4)); }
+  100% { filter: drop-shadow(0 0 8px rgba(255,215,0,0.4)); }
+}
+
+/* ── Bar chart grow ── */
+@keyframes bar-grow {
+  from { height: 0; }
+  to   { height: var(--bh); }
+}
+
+/* ── Lock draw ── */
+@keyframes lock-draw {
+  from { stroke-dashoffset: 200; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* ── Credits roll ── */
+@keyframes credits-scroll {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(-100%); }
+}
+
+/* ── Countdown flip ── */
+@keyframes num-flip {
+  0%   { transform: rotateX(0deg); opacity: 1; }
+  50%  { transform: rotateX(-90deg); opacity: 0; }
+  51%  { transform: rotateX(90deg); opacity: 0; }
+  100% { transform: rotateX(0deg); opacity: 1; }
+}
+
+/* ── CTA pulse ring ── */
+@keyframes cta-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(224,122,95,0.6); }
+  70%  { box-shadow: 0 0 0 16px rgba(224,122,95,0); }
+  100% { box-shadow: 0 0 0 0 rgba(224,122,95,0); }
+}
+
+/* ── Utility animation classes ── */
+.anim-float        { animation: float 4s ease-in-out infinite; }
+.anim-float-slow   { animation: float-slow 6s ease-in-out infinite; }
+.anim-glow         { animation: glow-pulse 3s ease-in-out infinite; }
+.anim-fade-up      { animation: fade-up 0.6s var(--transition-smooth) both; }
+.anim-scale-in     { animation: scale-in 0.5s var(--transition-spring) both; }
+.anim-shimmer {
+  background: linear-gradient(90deg, var(--accent-gold) 25%, #fff 50%, var(--accent-gold) 75%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gold-shimmer 3s linear infinite;
+}

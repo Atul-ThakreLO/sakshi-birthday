@@ -1,0 +1,565 @@
+/* ========================================================
+   SECTIONS — Sakshi Birthday Website (Human Touch Redesign)
+   ======================================================== */
+
+/* ── INTRO HERO (Warm Candlelit Atmosphere) ── */
+.section-intro {
+  background: linear-gradient(180deg, rgba(18, 14, 18, 0.45) 0%, rgba(18, 14, 18, 0.85) 100%),
+              url('/assets/hero_bg.png') center/cover no-repeat;
+  flex-direction: column;
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: all !important;
+}
+.section-intro::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, rgba(244, 226, 187, 0.12) 0%, rgba(18, 14, 18, 0.75) 80%);
+  pointer-events: none;
+}
+.intro-content {
+  position: relative; z-index: 3; display: flex;
+  flex-direction: column; align-items: center;
+  gap: 1.25rem; padding: 2rem 1.5rem; text-align: center;
+  max-width: 440px;
+}
+.lottie-cake { width: 140px; height: 140px; filter: drop-shadow(0 8px 25px rgba(244, 226, 187, 0.3)); }
+.intro-for {
+  font-family: var(--font-hand); font-size: 1.4rem; letter-spacing: 0.05em;
+  color: var(--accent-gold); margin-bottom: 0.1rem; text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+  opacity: 0;
+}
+.intro-sakshi {
+  font-family: var(--font-display); font-size: clamp(4rem, 20vw, 6.5rem);
+  font-weight: 900; line-height: 1; letter-spacing: -0.02em;
+  color: var(--accent-cream);
+  text-shadow: 0 4px 30px rgba(0,0,0,0.9), 0 2px 8px rgba(244, 226, 187, 0.4);
+}
+.intro-sakshi .letter {
+  display: inline-block;
+}
+.intro-sparkle-row {
+  display: flex; align-items: center; gap: 0.75rem;
+  color: var(--text-muted); font-size: 0.95rem; font-family: var(--font-body);
+  opacity: 0;
+}
+.sparkle-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent-gold); animation: sparkle-blink 1.5s ease-in-out infinite;
+}
+.sparkle-dot:last-child { animation-delay: 0.75s; }
+.intro-cta { animation: cta-ring 2.5s ease-in-out infinite 2.5s; opacity: 0; }
+
+/* ── COUNTDOWN HERO ── */
+.section-countdown {
+  background: linear-gradient(180deg, rgba(18, 14, 18, 0.8) 0%, rgba(18, 14, 18, 0.95) 100%),
+              url('/assets/hero_bg.png') center/cover no-repeat;
+  flex-direction: column;
+}
+.countdown-bg-orbs { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.orb {
+  position: absolute; border-radius: 50%; filter: blur(70px);
+  animation: orb-drift 14s ease-in-out infinite;
+}
+.orb-1 { width: 320px; height: 320px; background: rgba(224, 122, 95, 0.18); top: -10%; left: -15%; }
+.orb-2 { width: 280px; height: 280px; background: rgba(244, 226, 187, 0.15); bottom: 5%; right: -10%; animation-delay: -4s; }
+.orb-3 { width: 220px; height: 220px; background: rgba(221, 161, 94, 0.12); top: 40%; left: 30%; animation-delay: -8s; }
+
+.countdown-content {
+  position: relative; z-index: 2; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 1.5rem; padding: 2rem 1.5rem;
+}
+.countdown-label {
+  font-family: var(--font-hand); font-size: 1.5rem; color: var(--accent-gold);
+}
+.countdown-timer {
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.time-block {
+  display: flex; flex-direction: column; align-items: center;
+  background: rgba(255, 253, 249, 0.07);
+  border: 1px solid rgba(244, 226, 187, 0.25);
+  border-radius: var(--radius-sm); padding: 1rem 1.25rem;
+  min-width: 76px; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+.time-num {
+  font-family: var(--font-display); font-size: 2.6rem; font-weight: 800;
+  line-height: 1; color: var(--accent-cream);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+.time-unit {
+  font-family: var(--font-body); font-size: 0.65rem; color: var(--accent-gold);
+  letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.35rem; font-weight: 600;
+}
+.time-sep {
+  font-family: var(--font-display); font-size: 2rem; font-weight: 700;
+  color: var(--accent-terracotta); animation: sparkle-blink 1s ease-in-out infinite;
+}
+.countdown-date {
+  font-family: var(--font-body); font-size: 0.8rem; color: var(--text-muted);
+  letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500;
+}
+.birthday-message { text-align: center; position: relative; }
+.bday-msg-title {
+  font-family: var(--font-display); font-size: clamp(2.2rem, 10vw, 3.8rem);
+  font-weight: 900; line-height: 1.15; color: var(--accent-cream);
+}
+.bday-msg-title em { font-style: italic; color: var(--accent-gold); }
+.bday-msg-sub { color: var(--text-muted); margin-top: 0.5rem; font-size: 1rem; }
+.lottie-balloons-count {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 40%; pointer-events: none; opacity: 0.3;
+}
+.lottie-confetti-hero { position: absolute; inset: -50px; pointer-events: none; }
+
+/* ── SISTER WRAPPED (Editorial Scrapbook Vibe) ── */
+.section-wrapped { overflow: hidden; padding: 0; align-items: stretch; }
+.wrapped-slides-container {
+  position: relative; width: 100%; height: 100dvh; overflow: hidden;
+}
+.wrapped-slide {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  background: var(--slide-bg, var(--bg-deep));
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(0.96);
+}
+.wrapped-slide.active {
+  opacity: 1; pointer-events: all; transform: scale(1);
+}
+.wrapped-slide.exit { transform: scale(1.04); opacity: 0; }
+
+.wrapped-slide::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url('/assets/wrapped_bg.png') center/cover no-repeat;
+  opacity: 0.35;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.wrapped-content {
+  position: relative; z-index: 2; text-align: center;
+  padding: 5rem 1.75rem 7rem; display: flex; flex-direction: column;
+  align-items: center; gap: 1.25rem; max-width: 380px;
+}
+.wrapped-eyebrow {
+  font-family: var(--font-hand); font-size: 1.4rem; color: var(--accent-gold);
+}
+.wrapped-title {
+  font-family: var(--font-display); font-size: clamp(3rem, 14vw, 5rem);
+  font-weight: 900; line-height: 1.05; color: #FFFDF9; letter-spacing: -0.02em;
+}
+.wrapped-title em { font-style: italic; color: var(--accent-terracotta); }
+.wrapped-sub { color: rgba(255,253,249,0.8); font-size: 1rem; line-height: 1.5; font-family: var(--font-body); }
+
+.wrapped-big-stat {
+  display: flex; align-items: baseline; gap: 0.3rem; margin: 0.25rem 0;
+}
+.stat-number {
+  font-family: var(--font-display); font-size: clamp(4.5rem, 24vw, 8rem);
+  font-weight: 900; line-height: 1; color: var(--accent-cream);
+  text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
+.stat-unit { font-size: clamp(2rem, 10vw, 4rem); }
+.wrapped-stat-label {
+  font-family: var(--font-display); font-size: clamp(1.6rem, 7vw, 2.5rem);
+  font-weight: 700; color: var(--accent-gold);
+}
+
+/* Bar chart */
+.snack-bar-chart {
+  display: flex; gap: 1rem; align-items: flex-end; height: 110px; margin-top: 0.5rem;
+}
+.bar-wrap {
+  display: flex; flex-direction: column; align-items: center; gap: 0.4rem; width: 65px;
+}
+.bar {
+  width: 100%; border-radius: 8px 8px 0 0;
+  background: var(--bc, var(--accent-terracotta));
+  height: 0; animation: bar-grow 1s var(--transition-spring) 0.3s both;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.bar-wrap span { font-size: 0.7rem; color: rgba(255,253,249,0.75); text-align: center; line-height: 1.2; font-weight: 500; }
+
+/* Memory pills */
+.memory-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-top: 0.5rem; }
+.memory-pill {
+  background: rgba(255,253,249,0.12); border: 1px solid rgba(244,226,187,0.3);
+  border-radius: 9999px; padding: 0.55rem 1.1rem; font-size: 0.9rem;
+  color: #FFFDF9; font-family: var(--font-body); font-weight: 500;
+  backdrop-filter: blur(10px);
+  opacity: 0; animation: fade-up 0.5s var(--transition-spring) var(--delay, 0s) both;
+}
+
+/* Lock SVG */
+.lock-svg-wrap { margin-top: 0.5rem; }
+.lock-anim { width: 60px; height: 70px; }
+.lock-body { stroke-dasharray: 200; stroke-dashoffset: 200; animation: lock-draw 1s ease 0.3s both; }
+.lock-shackle { stroke-dasharray: 200; stroke-dashoffset: 200; animation: lock-draw 0.8s ease 0.5s both; }
+
+/* Wrapped nav */
+.wrapped-nav {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 10;
+  padding: 1rem 1.5rem max(env(safe-area-inset-bottom, 12px), 16px);
+  display: flex; flex-direction: column; gap: 1rem;
+}
+.wrapped-progress-bars { display: flex; gap: 5px; }
+.wrapped-progress-bars .prog-bar {
+  flex: 1; height: 3px; border-radius: 9999px;
+  background: rgba(255,253,249,0.25); overflow: hidden;
+}
+.wrapped-progress-bars .prog-bar .prog-fill {
+  height: 100%; background: var(--accent-gold); width: 0;
+  transition: width 0.1s linear;
+}
+.wrapped-progress-bars .prog-bar.done .prog-fill { width: 100%; }
+.wrapped-arrows { display: flex; gap: 0.75rem; justify-content: center; }
+.wrap-arrow {
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid rgba(244, 226, 187, 0.4); background: rgba(255,253,249,0.12);
+  color: #FFFDF9; font-size: 1.4rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(10px);
+  transition: background 0.2s, transform 0.2s var(--transition-spring);
+}
+.wrap-arrow:active { transform: scale(0.9); }
+.lottie-overlay {
+  position: absolute; inset: 0; pointer-events: none;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0.5; z-index: 0;
+}
+
+/* ── HALL OF FAME (Luxury Velvet Showcase) ── */
+.section-fame {
+  background: linear-gradient(180deg, rgba(18, 14, 18, 0.75) 0%, rgba(18, 14, 18, 0.95) 100%),
+              url('/assets/trophy_bg.png') center/cover no-repeat;
+  align-items: flex-start; overflow-y: auto; overflow-x: hidden;
+  -webkit-overflow-scrolling: touch; touch-action: pan-y;
+}
+.fame-content { width: 100%; padding: 4.5rem 1.25rem 6rem; max-width: 440px; margin: 0 auto; }
+.trophy-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 1rem; margin-top: 0;
+}
+.trophy-card {
+  position: relative; overflow: hidden;
+  background: linear-gradient(165deg, rgba(244, 226, 187, 0.12) 0%, rgba(18, 14, 18, 0.6) 100%);
+  border: 1px solid rgba(244, 226, 187, 0.3); border-radius: var(--radius-md);
+  padding: 1.25rem 0.75rem; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  cursor: pointer; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: transform 0.25s var(--transition-spring), border-color 0.2s;
+}
+.trophy-card:active { transform: scale(0.96); }
+.trophy-glow {
+  position: absolute; inset: 0; border-radius: inherit;
+  background: radial-gradient(circle at 50% 30%, rgba(244, 226, 187, 0.15), transparent 70%);
+}
+.lottie-trophy { width: 80px; height: 80px; filter: drop-shadow(0 4px 15px rgba(244, 226, 187, 0.25)); }
+.trophy-label {
+  font-family: var(--font-display); font-size: 0.9rem; font-weight: 700;
+  color: var(--accent-gold); text-align: center; line-height: 1.25;
+}
+.trophy-tap {
+  font-family: var(--font-hand); font-size: 1.1rem; color: var(--accent-terracotta);
+}
+
+/* ── MEMORY LANE (Handcrafted Polaroid Scrapbook) ── */
+.section-memory {
+  align-items: flex-start; overflow-y: auto; overflow-x: hidden;
+  -webkit-overflow-scrolling: touch; touch-action: pan-y;
+  background: linear-gradient(180deg, rgba(18, 14, 18, 0.9) 0%, rgba(18, 14, 18, 0.95) 100%),
+              url('/assets/wrapped_bg.png') center/cover no-repeat;
+}
+.memory-content { width: 100%; padding: 4.5rem 1.25rem 6rem; max-width: 440px; margin: 0 auto; }
+.timeline { position: relative; padding: 1rem 0; }
+.timeline-line {
+  position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--accent-gold), var(--accent-terracotta), transparent);
+  transform: translateX(-50%);
+}
+.timeline-entry {
+  display: flex; align-items: center; margin-bottom: 2.75rem;
+  position: relative; gap: 0;
+}
+.timeline-entry.left { flex-direction: row; }
+.timeline-entry.right { flex-direction: row-reverse; }
+.timeline-dot {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--accent-gold); border: 2px solid var(--bg-deep);
+  box-shadow: 0 0 14px rgba(244, 226, 187, 0.8); flex-shrink: 0; z-index: 2;
+}
+.timeline-year {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  bottom: -22px; font-size: 1rem; color: var(--accent-gold);
+  font-family: var(--font-hand); white-space: nowrap; font-weight: 600;
+}
+
+/* Polaroid Card */
+.polaroid {
+  width: calc(50% - 16px); cursor: pointer;
+  transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+  position: relative; margin: 0 8px;
+}
+.timeline-entry.left .polaroid { transform: rotate(-3deg); }
+.timeline-entry.right .polaroid { transform: rotate(3deg); }
+.polaroid.flipped { transform: rotateY(180deg) !important; }
+
+/* Masking Tape Texture on Polaroid */
+.polaroid::before {
+  content: '';
+  position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+  width: 45px; height: 18px;
+  background: rgba(244, 226, 187, 0.45);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  z-index: 5;
+}
+
+.polaroid-front, .polaroid-back {
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  background: #FFFDF9; border-radius: 4px; overflow: hidden;
+  padding: 8px 8px 12px;
+  box-shadow: var(--shadow-polaroid);
+}
+.polaroid-back {
+  position: absolute; inset: 0; transform: rotateY(180deg);
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 0.5rem; padding: 1.25rem;
+  background: #FAF6EE;
+}
+.polaroid-back p { color: #2B2328; font-family: var(--font-hand); font-size: 1.25rem; text-align: center; line-height: 1.3; }
+.back-year { font-family: var(--font-body); font-size: 0.7rem; color: #888; letter-spacing: 0.1em; }
+.polaroid-photo {
+  width: 100%; aspect-ratio: 1; background: #EFEBE4;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+  border-radius: 2px;
+}
+.polaroid-img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.polaroid:hover .polaroid-img { transform: scale(1.05); }
+.polaroid-caption {
+  padding-top: 0.5rem; font-family: var(--font-hand);
+  font-size: 1.15rem; color: #2B2328; text-align: center; font-weight: 600;
+}
+.easter-hint {
+  display: block; font-size: 0.9rem; color: var(--accent-terracotta); text-align: center;
+  padding-top: 0.1rem; font-family: var(--font-hand);
+}
+.easter-egg-photo { animation: polaroid-wobble 4s ease-in-out infinite; }
+
+/* ── SCRATCH ARCADE ── */
+.section-scratch {
+  align-items: flex-start; overflow-y: auto;
+  -webkit-overflow-scrolling: touch; touch-action: pan-y;
+  background: linear-gradient(180deg, rgba(18, 14, 18, 0.85) 0%, rgba(18, 14, 18, 0.95) 100%),
+              url('/assets/hero_bg.png') center/cover no-repeat;
+}
+.scratch-content { width: 100%; padding: 4.5rem 1.25rem 4rem; max-width: 440px; margin: 0 auto; }
+.scratch-hint-text { color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem; }
+.scratch-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.5rem;
+}
+.scratch-wrapper {
+  position: relative; border-radius: var(--radius-sm); overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border: 1px solid rgba(244, 226, 187, 0.3);
+}
+.scratch-reveal {
+  width: 100%; height: 160px;
+  background: linear-gradient(135deg, #281F24, #1B1418);
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 0.4rem; padding: 1rem;
+}
+.gift-icon { font-size: 2.2rem; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4)); }
+.gift-title {
+  font-family: var(--font-display); font-size: 0.95rem; font-weight: 700;
+  color: var(--accent-gold); text-align: center;
+}
+.gift-desc { font-size: 0.75rem; color: var(--text-muted); text-align: center; line-height: 1.35; }
+.scratch-canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='10' fill='rgba(244,226,187,0.6)'/%3E%3C/svg%3E") 16 16, crosshair;
+  touch-action: none; border-radius: var(--radius-sm);
+}
+
+/* ── QUIZ ── */
+.section-quiz {
+  background: linear-gradient(180deg, rgba(18, 14, 18, 0.85) 0%, rgba(18, 14, 18, 0.95) 100%),
+              url('/assets/wrapped_bg.png') center/cover no-repeat;
+  align-items: flex-start; overflow-y: auto;
+  -webkit-overflow-scrolling: touch; touch-action: pan-y;
+}
+.quiz-content { width: 100%; padding: 4.5rem 1.25rem 4rem; max-width: 440px; margin: 0 auto; }
+.quiz-card {
+  background: rgba(255, 253, 249, 0.08); border: 1px solid rgba(244, 226, 187, 0.25);
+  border-radius: var(--radius-lg); padding: 1.5rem;
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  margin-top: 1.25rem; box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+.quiz-progress-bar {
+  width: 100%; height: 4px; background: rgba(255,253,249,0.12);
+  border-radius: 9999px; overflow: hidden; margin-bottom: 1.25rem;
+}
+.quiz-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-terracotta));
+  border-radius: 9999px; width: 20%; transition: width 0.5s var(--transition-smooth);
+}
+.quiz-q-num {
+  font-family: var(--font-hand); font-size: 1.2rem; color: var(--accent-gold);
+  margin-bottom: 0.5rem;
+}
+.quiz-question {
+  font-family: var(--font-display); font-size: 1.35rem; font-weight: 700;
+  color: var(--accent-cream); line-height: 1.35; margin-bottom: 1.25rem;
+}
+.quiz-options { display: flex; flex-direction: column; gap: 0.75rem; }
+.quiz-option {
+  padding: 0.9rem 1.1rem; border-radius: var(--radius-sm);
+  border: 1px solid rgba(244, 226, 187, 0.2); background: rgba(255,253,249,0.05);
+  color: var(--text-primary); font-family: var(--font-body); font-size: 0.95rem;
+  text-align: left; cursor: pointer; font-weight: 500;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s var(--transition-spring);
+}
+.quiz-option:active { transform: scale(0.98); }
+.quiz-option.correct { background: rgba(129, 178, 154, 0.25); border-color: var(--accent-teal); color: #BEE3D0; }
+.quiz-option.wrong   { background: rgba(224, 122, 95, 0.25); border-color: var(--accent-rose); color: #F8C3B5; }
+
+.quiz-result {
+  text-align: center; padding: 2rem 0; display: flex;
+  flex-direction: column; align-items: center; gap: 0.75rem;
+}
+.lottie-quiz-stars { width: 140px; height: 140px; }
+.quiz-score-label { color: var(--text-muted); font-size: 0.95rem; }
+.quiz-score-num {
+  font-family: var(--font-display); font-size: 4rem; font-weight: 900;
+  color: var(--accent-gold); text-shadow: 0 4px 20px rgba(244,226,187,0.3);
+}
+.quiz-score-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--accent-cream); }
+.quiz-score-sub { color: var(--text-muted); font-size: 0.9rem; }
+.quiz-retry { margin-top: 0.5rem; }
+
+/* ── GRAND FINALE ── */
+.section-finale {
+  background: linear-gradient(180deg, rgba(18, 14, 18, 0.6) 0%, rgba(18, 14, 18, 0.95) 100%),
+              url('/assets/hero_bg.png') center/cover no-repeat;
+  align-items: flex-start; overflow-y: auto;
+  -webkit-overflow-scrolling: touch; touch-action: pan-y;
+}
+.finale-canvas {
+  position: fixed; inset: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 1;
+}
+.finale-content {
+  position: relative; z-index: 2; width: 100%; max-width: 440px; margin: 0 auto;
+  padding: 4.5rem 1.5rem 8rem; display: flex;
+  flex-direction: column; align-items: center; gap: 1.5rem; text-align: center;
+}
+.lottie-heart-finale { width: 100px; height: 100px; filter: drop-shadow(0 4px 20px rgba(244, 226, 187, 0.4)); }
+.finale-title {
+  font-family: var(--font-display); font-size: clamp(2.4rem, 11vw, 4.2rem);
+  font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: var(--accent-cream);
+}
+.finale-title em {
+  font-style: italic; color: var(--accent-gold);
+}
+.finale-letter {
+  background: #FFFDF9; border: 1px solid rgba(244, 226, 187, 0.4);
+  border-radius: var(--radius-md); padding: 1.75rem 1.5rem;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+  max-width: 380px; width: 100%; position: relative;
+}
+.finale-letter::before {
+  content: '✉️';
+  position: absolute; top: -14px; right: 20px; font-size: 1.5rem;
+}
+.letter-text {
+  font-family: var(--font-hand); font-size: 1.4rem; line-height: 1.6;
+  color: #2B2328; text-align: left; min-height: 180px; font-weight: 600;
+}
+.finale-signature {
+  font-family: var(--font-hand); font-size: 1.5rem; font-weight: 700;
+  color: var(--accent-gold);
+}
+/* ── CREATIVE MOVIE CREDITS BOARD ── */
+.credits-board {
+  width: 100%; max-width: 400px;
+  background: rgba(22, 17, 20, 0.92);
+  border: 2px solid rgba(244, 226, 187, 0.4);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.25rem;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(244,226,187,0.15);
+  backdrop-filter: blur(16px);
+  position: relative;
+  margin-top: 1rem;
+  display: flex; flex-direction: column; gap: 1.25rem;
+}
+.credits-header-badge {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  background: rgba(224, 122, 95, 0.15); border: 1px solid rgba(224, 122, 95, 0.4);
+  padding: 0.4rem 0.9rem; border-radius: var(--radius-full);
+  margin: 0 auto;
+}
+.badge-icon { font-size: 1.1rem; }
+.badge-title {
+  font-family: var(--font-body); font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.15em; color: var(--accent-gold); text-transform: uppercase;
+}
+.credits-grid {
+  display: flex; flex-direction: column; gap: 0.85rem; text-align: center;
+}
+.credit-tile {
+  background: rgba(255, 253, 249, 0.04);
+  border: 1px solid rgba(244, 226, 187, 0.12);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem;
+  display: flex; flex-direction: column; gap: 0.25rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.credit-tile:hover {
+  transform: translateY(-2px);
+  border-color: rgba(244, 226, 187, 0.35);
+}
+.tile-role {
+  font-family: var(--font-body); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.12em; color: var(--text-muted); text-transform: uppercase;
+}
+.tile-value {
+  font-family: var(--font-body); font-size: 0.95rem; font-weight: 600;
+  color: var(--accent-cream);
+}
+.tile-value.highlight {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
+  color: var(--accent-gold); text-shadow: 0 2px 10px rgba(244,226,187,0.25);
+}
+.credits-footer {
+  border-top: 1px dashed rgba(244, 226, 187, 0.2);
+  padding-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem; text-align: center;
+}
+.disclaimer-text {
+  font-size: 0.82rem; color: #DDA15E; font-style: italic; line-height: 1.4;
+}
+/* ── SECTION 8: MOVIE CREDITS (9TH DOT) ── */
+.section-credits {
+  background: linear-gradient(180deg, rgba(14, 10, 14, 0.85) 0%, rgba(22, 17, 20, 0.98) 100%),
+              url('/assets/trophy_bg.png') center/cover no-repeat;
+  align-items: flex-start; overflow-y: auto;
+  -webkit-overflow-scrolling: touch; touch-action: pan-y;
+}
+.credits-content {
+  position: relative; z-index: 2; width: 100%; max-width: 440px; margin: 0 auto;
+  padding: 4.5rem 1.25rem 6rem; display: flex;
+  flex-direction: column; align-items: center; justify-content: center;
+}
+.finale-cta {
+  margin-top: 1.25rem;
+  animation: cta-ring 2.5s ease-in-out infinite;
+}
+
