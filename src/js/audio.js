@@ -15,6 +15,24 @@ export function initAudio() {
   toggle?.addEventListener('click', () => {
     if (isPlaying) pauseMusic(); else playMusic();
   });
+
+  // Attempt to play immediately
+  playMusic();
+
+  // Fallback: Autoplay is often blocked by browsers until the user interacts with the page.
+  // We attach a one-time listener to start the music on the first click or keypress.
+  const startOnInteraction = () => {
+    if (!isPlaying) {
+      playMusic();
+    }
+    document.removeEventListener('click', startOnInteraction);
+    document.removeEventListener('keydown', startOnInteraction);
+    document.removeEventListener('touchstart', startOnInteraction);
+  };
+  
+  document.addEventListener('click', startOnInteraction);
+  document.addEventListener('keydown', startOnInteraction);
+  document.addEventListener('touchstart', startOnInteraction);
 }
 
 export function playMusic() {
