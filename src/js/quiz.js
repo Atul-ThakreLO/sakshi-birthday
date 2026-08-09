@@ -3,28 +3,38 @@
 const QUESTIONS = [
   {
     q: "What's the most common reason we argue?",
-    options: ['TV remote', 'Bathroom time', 'Snack theft', 'WiFi password'],
+    options: ['Bathroom queue', 'Fighting over the TV remote', 'Snack theft', 'WiFi speed'],
+    correct: 1,
+  },
+  {
+    q: "What's the first thing I do after waking up?",
+    options: ['Go for a 5km morning run 🏃', 'Quietly meditate in peace 🧘', 'Wake up other family members 📢', 'Drink green tea & do yoga 🍵'],
     correct: 2,
   },
   {
-    q: `What's the first thing I do when I wake up?`,
-    options: ['Check Instagram', 'Make chai', 'Look at my phone for 30 mins', 'Complain about life'],
-    correct: 2,
+    q: "What is my ultimate obsession & favorite topic to talk about?",
+    options: ['Daily soap serials 📺', 'Cars, cricket & tech (mobiles, laptops) 🚗🏏📱', 'Bollywood gossip 🎬', 'Horoscope predictions 🔮'],
+    correct: 1,
   },
   {
-    q: "What's my go-to midnight snack?",
-    options: ['Biscuits', 'Maggi', 'Chips with ketchup', 'Fruits (lol no)'],
-    correct: 2,
+    q: "Which signature dialogue do I say the most?",
+    options: [
+      '"Just 5 more minutes"',
+      '"Ashi gosth aahe tula vatte majak"',
+      '"I was just about to do that"',
+      '"Not my fault honestly"',
+    ],
+    correct: 1,
   },
   {
-    q: 'Which phrase do I say the most?',
-    options: [`'Just 5 more minutes'`, `'I was about to do that'`, `'Not my fault'`, `'Okay but hear me out'`],
-    correct: 3,
-  },
-  {
-    q: "What's my love language?",
-    options: ['Words of affirmation', 'Acts of service (food)', 'Quality time', 'Roasting you gently'],
-    correct: 3,
+    q: "What is my actual love language?",
+    options: [
+      'Sweet words of affirmation',
+      'Being annoying, tap on forehead, teasing & asking for expensive gifts',
+      'Doing all the chores silently',
+      'Sending wholesome reels',
+    ],
+    correct: 1,
   },
 ];
 

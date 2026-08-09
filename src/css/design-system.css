@@ -399,19 +399,49 @@ body {
 }
 
 .modal-trophy-lottie { height: 110px; }
+.modal-category {
+  font-family: var(--font-hand);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--accent-terracotta);
+  margin-top: 0.25rem;
+}
 .modal-award-title {
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--accent-gold);
-  margin: 0.5rem 0;
+  margin: 0.25rem 0 0.5rem;
 }
 .modal-speech {
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: var(--text-muted);
   line-height: 1.6;
-  margin: 0.75rem 0;
+  margin: 0.5rem 0;
+}
+.modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: 0.6rem 0 0.4rem;
+}
+.modal-tag {
+  background: rgba(244, 226, 187, 0.12);
+  border: 1px solid rgba(244, 226, 187, 0.35);
+  border-radius: 9999px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.78rem;
+  color: var(--accent-cream);
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+.modal-tag-sep {
+  color: var(--accent-terracotta);
+  font-weight: 700;
+  font-size: 0.9rem;
 }
 .modal-photo-slot {
   width: 100%;

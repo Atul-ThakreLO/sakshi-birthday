@@ -163,10 +163,34 @@
   font-weight: 900; line-height: 1; color: var(--accent-cream);
   text-shadow: 0 4px 20px rgba(0,0,0,0.6);
 }
+.stat-prefix {
+  font-family: var(--font-display); font-size: clamp(4rem, 20vw, 7rem);
+  font-weight: 900; line-height: 1; color: var(--accent-gold);
+  text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
 .stat-unit { font-size: clamp(2rem, 10vw, 4rem); }
 .wrapped-stat-label {
   font-family: var(--font-display); font-size: clamp(1.6rem, 7vw, 2.5rem);
   font-weight: 700; color: var(--accent-gold);
+}
+
+/* Wrapped tags / badges */
+.wrapped-tags {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 0.5rem; margin-top: 0.5rem;
+}
+.wrapped-tag-pill {
+  background: rgba(255, 253, 249, 0.12);
+  border: 1px solid rgba(244, 226, 187, 0.35);
+  border-radius: 9999px; padding: 0.4rem 0.85rem;
+  font-size: 0.82rem; color: var(--accent-cream);
+  font-family: var(--font-body); font-weight: 600;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.tag-bullet {
+  color: var(--accent-terracotta);
+  font-size: 1.2rem; line-height: 1; font-weight: 700;
 }
 
 /* Bar chart */
@@ -193,12 +217,6 @@
   backdrop-filter: blur(10px);
   opacity: 0; animation: fade-up 0.5s var(--transition-spring) var(--delay, 0s) both;
 }
-
-/* Lock SVG */
-.lock-svg-wrap { margin-top: 0.5rem; }
-.lock-anim { width: 60px; height: 70px; }
-.lock-body { stroke-dasharray: 200; stroke-dashoffset: 200; animation: lock-draw 1s ease 0.3s both; }
-.lock-shackle { stroke-dasharray: 200; stroke-dashoffset: 200; animation: lock-draw 0.8s ease 0.5s both; }
 
 /* Wrapped nav */
 .wrapped-nav {
