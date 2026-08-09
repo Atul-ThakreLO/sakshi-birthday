@@ -13,7 +13,7 @@ const SCROLL_SECTIONS = new Set([3, 4, 5, 6, 7, 8]);
 
 export function initNavigation(onSectionChange) {
   setupDots(onSectionChange);
-  setupSwipe(onSectionChange);
+  // setupSwipe(onSectionChange); // Temporarily disabled touch swipe navigation
   setupButtons(onSectionChange);
   updateDots(0);
 }
